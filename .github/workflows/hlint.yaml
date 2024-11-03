@@ -18,6 +18,7 @@ jobs:
         id: setup
         with:
           version: 3.6.1
+      - run: cp ${{ steps.setup.outputs.hlint-bin }} ${{ github.workspace }}/custom-hlint
       - uses: haskell-actions/hlint-scan@3e2feb228d5d90db9ba2bb93c720d83e4c06681c # v1.2.0
         with:
-          binary: ${{ steps.setup.outputs.hlint-bin }}
+          binary: /github/workspace/custom-hlint
